@@ -4,9 +4,8 @@
 // Routes:
 //   /         → Main portfolio page with 3D character + all sections
 //   /myworks  → Full project gallery page
-//   /play     → Interactive chess + AI chat page
 //
-// All three page components are lazy-loaded (code-split) so the initial JS
+// Page components are lazy-loaded (code-split) so the initial JS
 // bundle stays small — each chunk is only downloaded when that route is visited.
 
 import { lazy, Suspense } from "react";
@@ -19,7 +18,6 @@ import "./App.css";
 const CharacterModel = lazy(() => import("./components/Character"));
 const MainContainer = lazy(() => import("./components/MainContainer"));
 const MyWorks = lazy(() => import("./pages/MyWorks"));
-const Play = lazy(() => import("./pages/Play"));
 
 // LoadingProvider manages the global loading screen state and must wrap
 // the home route so the 3D character can report its load progress.
@@ -58,16 +56,6 @@ const App = () => {
           element={
             <Suspense fallback={<div>Loading...</div>}>
               <MyWorks />
-            </Suspense>
-          }
-        />
-
-        {/* ── Play / Chess + Chat page ──────────────────────────────────── */}
-        <Route
-          path="/play"
-          element={
-            <Suspense fallback={<div>Loading...</div>}>
-              <Play />
             </Suspense>
           }
         />
