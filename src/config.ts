@@ -1,3 +1,5 @@
+import { sideQuests } from "./data/sideQuests";
+
 /**
  * config.ts — Central data store for the entire portfolio.
  *
@@ -104,31 +106,8 @@ export const config = {
         }
     ],
 
-    // ─── Projects (shown in Work.tsx and MyWorks page) ────────────────────────
-    // Only the first 5 are shown in the horizontal scroll on the homepage.
-    // All projects appear on the /myworks full page.
-    projects: [
-        {
-            id: 1,
-            title: "Raptures",
-            slug: "raptures",
-            highlight: "My First Venture, a Discord bot that became a Web3 wallet gateway.",
-            category: "Startup",
-            technologies: "Won hackathons, grants & went to Germany at no cost.",
-            image: "/images/raptures.jpg",
-            description: "Co-founded a Discord Bot that converts social media accounts into Web3 gateways — 1-click wallet creation & transactions over channels. Won DAAD Grant (Germany), Desert Hack, Solana Hacker House (Delhi '22 & Bangalore '23), SPARKLE equity-free grant (~Rs.2L), pre-seed incubation at PIEDS, and Udaan Bootcamp by India Accelerator."
-        },
-        {
-            id: 2,
-            title: "GAN Encryption — NFT Security",
-            slug: "research-paper",
-            highlight: "My First Research Paper, Publish in IEEE",
-            category: "Research",
-            technologies: "Generative Adversarial Networks to enhance the security of Non-Fungible Tokens (NFTs).",
-            image: "/images/research-paper.jpg",
-            description: "Published research on advanced encryption using Generative Adversarial Networks to enhance the security of Non-Fungible Tokens (NFTs). Published in IEEE Access (IF: 3.9) achieving <0.45s execution time and reducing image similarity to <1%. Research conducted under the SPARKLE program at BITS Pilani."
-        }
-    ],
+    projects: sideQuests,
+
 
     // ─── Contact links (used in Contact.tsx, SocialIcons.tsx, Navbar.tsx) ────
     // Leave facebook as "" to hide it — Contact.tsx conditionally renders it.

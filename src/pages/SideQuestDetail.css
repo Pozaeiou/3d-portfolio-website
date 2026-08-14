@@ -158,3 +158,112 @@
     font-size: 15px;
   }
 }
+
+/* ── Meta row (category + period + status) ───────────────────────────────── */
+.sq-detail-meta {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 0;
+}
+
+.sq-detail-period,
+.sq-detail-status {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.4);
+  margin: 0;
+  letter-spacing: 0.05em;
+}
+
+/* ── Long description paragraphs ─────────────────────────────────────────── */
+.sq-detail-longdesc {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sq-detail-longdesc p {
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0;
+}
+
+/* ── Awards ──────────────────────────────────────────────────────────────── */
+.sq-detail-awards {
+  margin-bottom: 60px;
+}
+
+.sq-detail-awards h2 {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  margin: 0 0 20px;
+}
+
+.sq-detail-awards ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sq-detail-awards li {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.75);
+  padding-left: 16px;
+  position: relative;
+}
+
+.sq-detail-awards li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--accentColor);
+}
+
+/* ── Team ────────────────────────────────────────────────────────────────── */
+.sq-detail-team {
+  margin-bottom: 60px;
+}
+
+.sq-detail-team h2 {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  margin: 0 0 20px;
+}
+
+/* ── Links ───────────────────────────────────────────────────────────────── */
+.sq-detail-links {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.sq-detail-link-btn {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 30px;
+  border: 1px solid var(--accentColor);
+  color: var(--accentColor);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.sq-detail-link-btn:hover {
+  background: var(--accentColor);
+  color: #000;
+}

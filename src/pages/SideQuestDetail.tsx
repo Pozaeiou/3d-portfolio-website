@@ -1,16 +1,13 @@
-// SideQuestDetail.tsx — Individual side quest / project detail page (/works/:id).
-//
-// Reads the project id from the URL param, finds the matching project
-// in config.projects, and renders a full-page breakdown of that project.
-// If no project is found, shows a not-found message.
+// SideQuestDetail.tsx — Individual side quest detail page (/side-quests/:slug).
+// All content is sourced from src/data/sideQuests.ts
 
 import { useParams, Link } from "react-router-dom";
-import { config } from "../config";
+import { sideQuests } from "../data/sideQuests";
 import "./SideQuestDetail.css";
 
 const SideQuestDetail = () => {
   const { slug } = useParams<{ slug: string }>();
-  const project = config.projects.find((p) => p.slug === slug);
+  const project = sideQuests.find((p) => p.slug === slug);
 
   if (!project) {
     return (
@@ -21,44 +18,74 @@ const SideQuestDetail = () => {
     );
   }
 
-  // Split comma-separated technologies into individual pill tags
   const techList = project.technologies.split(",").map((t) => t.trim());
+  const index = sideQuests.findIndex((p) => p.slug === slug) + 1;
 
   return (
     <div className="sq-detail-page">
 
-      {/* ── Top nav ───────────────────────────────────────────────────────── */}
+      {/* ── Nav ─────────────────────────────────────────────────────────── */}
       <div className="sq-detail-nav">
-        <Link to="/" className="sq-detail-back" data-cursor="disable">
-          ← Back to Home
-        </Link>
+        <Link to="/" className="sq-detail-back" data-cursor="disable">← Back to Home</Link>
       </div>
 
-      {/* ── Hero ─────────────────────────────────────────────────────────── */}
+      {/* ── Hero ────────────────────────────────────────────────────────── */}
       <div className="sq-detail-hero">
-        <span className="sq-detail-number">
-          0{config.projects.findIndex((p) => p.id === project.id) + 1}
-        </span>
-        <p className="sq-detail-category">{project.category}</p>
+        <span className="sq-detail-number">0{index}</span>
+        <div className="sq-detail-meta">
+          <p className="sq-detail-category">{project.category}</p>
+          {project.period && <p className="sq-detail-period">{project.period}</p>}
+          {project.status && <p className="sq-detail-status">{project.status}</p>}
+        </div>
         <h1 className="sq-detail-title">{project.title}</h1>
         <p className="sq-detail-highlight">{project.highlight}</p>
       </div>
 
-      {/* ── Divider ──────────────────────────────────────────────────────── */}
       <div className="sq-detail-divider" />
 
-      {/* ── Image ────────────────────────────────────────────────────────── */}
+      {/* ── Image ───────────────────────────────────────────────────────── */}
       <div className="sq-detail-image">
         <img src={project.image} alt={project.title} />
       </div>
 
-      {/* ── Description ──────────────────────────────────────────────────── */}
+      {/* ── Description ─────────────────────────────────────────────────── */}
       <div className="sq-detail-body">
         <h2>About this project</h2>
         <p>{project.description}</p>
+        {project.longDesc && (
+          <div className="sq-detail-longdesc">
+            {project.longDesc.split('\n').map((para, i) => (
+              <p key={i}>{para}</p>
+            ))}
+          </div>
+        )}
       </div>
 
-      {/* ── Tech stack ───────────────────────────────────────────────────── */}
+      {/* ── Awards ──────────────────────────────────────────────────────── */}
+      {project.awards && project.awards.length > 0 && (
+        <div className="sq-detail-awards">
+          <h2>Awards & Recognition</h2>
+          <ul>
+            {project.awards.map((award) => (
+              <li key={award}>{award}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      {/* ── Team ────────────────────────────────────────────────────────── */}
+      {project.team && project.team.length > 0 && (
+        <div className="sq-detail-team">
+          <h2>Team</h2>
+          <div className="sq-detail-tech-pills">
+            {project.team.map((member) => (
+              <span className="sq-detail-pill" key={member}>{member}</span>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* ── Tech stack ──────────────────────────────────────────────────── */}
       <div className="sq-detail-tech">
         <h2>Built with</h2>
         <div className="sq-detail-tech-pills">
@@ -67,6 +94,24 @@ const SideQuestDetail = () => {
           ))}
         </div>
       </div>
+
+      {/* ── Links ───────────────────────────────────────────────────────── */}
+      {project.links && project.links.length > 0 && (
+        <div className="sq-detail-links">
+          {project.links.map((link) => (
+            <a
+              key={link.label}
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="sq-detail-link-btn"
+              data-cursor="disable"
+            >
+              {link.label} →
+            </a>
+          ))}
+        </div>
+      )}
 
     </div>
   );
