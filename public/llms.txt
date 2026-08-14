@@ -1,0 +1,41 @@
+# Pratham Oza
+
+> Head of GTM & AI Engineer based in Bengaluru, India. BITS Pilani CS graduate. Exploring side quests & quests(ions).
+
+Pratham Oza is a product-minded GTM leader and software engineer. He currently heads GTM at Fibr AI (Accel Funded, $7.5Mn), where he builds AI Agents for personalised website experiences and drives B2B SaaS sales. Previously worked at Searce (Google Premier Partner), Viacom18/JioCinema, UpTrain (YC W23), and Silver Touch Technologies.
+
+## Work Experience
+
+- **Head of GTM** — Fibr AI, Bengaluru (Sep 2024 – Present). Led 100+ enterprise discoveries, engineered 66% reduction in sales-ops costs via automation, owned 75+ end-to-end deals, drove $200K+ in proposals.
+- **Cloud Consultant** — Searce Inc (Jul 2024 – Sep 2024). Google Workspace team, earned Google Cloud Digital Leader certification.
+- **Performance & Growth Intern** — Viacom18 / JioCinema (Feb 2024 – Jun 2024). Managed paid campaigns for JioCinema Premium launch, 15% reduction in Cost-Per-Subscription, SEO for 10+ SVOD titles.
+- **Founder's Office Intern** — UpTrain AI, YC W23 (Sep 2023 – Dec 2023). Early GTM, outbound sales, published 4 blogs on LLM evaluation metrics.
+- **RPA Developer Intern** — Silver Touch Technologies (Jun 2022 – Aug 2022). Top Performing Intern, 20x efficiency improvement via Automation Anywhere bots.
+
+## Projects
+
+- **Raptures — Web3 Wallet**: Co-founded a Discord Bot converting social accounts into Web3 gateways (1-click wallet + transactions on Solana). Won DAAD Grant, Desert Hack, Solana Hacker House Delhi '22 & Bengaluru '23, SPARKLE grant, pre-seed incubation at PIEDS.
+- **GAN Encryption — NFT Security**: Published research on GAN-based NFT encryption in IEEE Access (IF: 3.9). <0.45s execution, <1% image similarity. Conducted under SPARKLE program at BITS Pilani.
+
+## Skills
+
+- **GTM & Sales**: Discovery, Pitch, B2B SaaS, Outbound Sales, AI Agents, N8N, GTM Strategy, CRO, Pipedrive CRM, Apollo, Lemlist
+- **Engineering**: Python, TypeScript, React, Node.js, Discord API, Solana Web3 SDK, RPA, Automation Anywhere, PyTorch
+
+## Education
+
+- **B.E. Computer Science** — BITS Pilani, Pilani Campus (Graduated Nov 2024)
+
+## Contact & Links
+
+- Website: https://poza.in
+- Email: pratham@poza.in
+- LinkedIn: https://linkedin.com/in/pratham-oza-9637ba201
+- GitHub: https://github.com/Pozaeiou
+- Twitter/X: https://x.com/aspro_99
+- Instagram: https://www.instagram.com/pozaeiou
+
+## Pages
+
+- https://poza.in — Portfolio home with 3D experience
+- https://poza.in/myworks — Full project gallery
