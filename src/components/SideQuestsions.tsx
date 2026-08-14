@@ -19,7 +19,7 @@ const items: TechItem[][] = [
 
 const SideQuestsions = () => {
   return (
-    <div className="techstack-new">
+    <div className="techstack-new" id="sidequestions">
 
       {/* ── Video background ─────────────────────────────────────────────── */}
       <div className="techstack-video-container">

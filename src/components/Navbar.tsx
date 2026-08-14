@@ -121,6 +121,11 @@ const Navbar = () => {
             </a>
           </li>
           <li>
+            <a data-href="#sidequestions" href="#sidequestions">
+              <HoverLinks text="SIDE QUESTS(IONS)" />
+            </a>
+          </li>
+          <li>
             <a data-href="#contact" href="#contact">
               <HoverLinks text="CONTACT" />
             </a>
