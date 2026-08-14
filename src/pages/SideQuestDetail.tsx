@@ -2,7 +2,7 @@
 // All content is sourced from src/data/sideQuests.ts
 
 import { useParams, Link } from "react-router-dom";
-import { sideQuests } from "../data/sideQuests";
+import { sideQuests } from "../data/sideQuests/index";
 import "./SideQuestDetail.css";
 
 const SideQuestDetail = () => {

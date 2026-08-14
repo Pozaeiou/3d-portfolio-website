@@ -1,4 +1,4 @@
-import { sideQuests } from "./data/sideQuests";
+import { sideQuests } from "./data/sideQuests/index";
 
 /**
  * config.ts — Central data store for the entire portfolio.
