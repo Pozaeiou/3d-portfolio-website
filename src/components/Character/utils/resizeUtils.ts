@@ -5,11 +5,6 @@
 //   2. Camera aspect ratio must be updated and projection matrix recalculated.
 //   3. GSAP ScrollTrigger timelines must be re-created because they use pixel
 //      measurements (start/end positions) that are now stale.
-//
-// The existing "work" ScrollTrigger is intentionally preserved — it has its
-// own invalidateOnRefresh logic and killing it here would break the horizontal
-// scroll section. All other triggers are killed and re-created via
-// setCharTimeline() and setAllTimeline().
 
 import * as THREE from "three";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -35,14 +30,9 @@ export default function handleResize(
   camera.aspect = width / height;
   camera.updateProjectionMatrix();
 
-  // Keep the Work section's ScrollTrigger — it manages its own refresh
-  const workTrigger = ScrollTrigger.getById("work");
-
-  // Kill all other scroll triggers (they hold stale pixel positions)
+  // Kill all scroll triggers (they hold stale pixel positions)
   ScrollTrigger.getAll().forEach((trigger) => {
-    if (trigger != workTrigger) {
-      trigger.kill();
-    }
+    trigger.kill();
   });
 
   // Re-create GSAP timelines with recalculated pixel values
