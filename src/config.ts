@@ -114,7 +114,7 @@ export const config = {
             highlight: "Won 5 hackathons & raised pre-seed — a Discord bot that became a Web3 wallet gateway.",
             category: "Web3 / Startup",
             technologies: "Discord API, Blockchain, Solana Web3 SDK, TypeScript, Node.js",
-            image: "/images/placeholder.webp",
+            image: "/images/raptures.jpg",
             description: "Co-founded a Discord Bot that converts social media accounts into Web3 gateways — 1-click wallet creation & transactions over channels. Won DAAD Grant (Germany), Desert Hack, Solana Hacker House (Delhi '22 & Bangalore '23), SPARKLE equity-free grant (~Rs.2L), pre-seed incubation at PIEDS, and Udaan Bootcamp by India Accelerator."
         },
         {
