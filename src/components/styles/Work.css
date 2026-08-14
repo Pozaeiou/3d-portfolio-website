@@ -380,3 +380,43 @@ a.work-box {
 a.work-box:hover {
   background: rgba(255, 255, 255, 0.03);
 }
+
+/* ── See All CTA section (below the horizontal scroll strip) ─────────────── */
+.work-see-all-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px 40px;
+  gap: 24px;
+  border-top: 1px solid #363636;
+}
+
+.work-see-all-section h2 {
+  font-size: 64px;
+  font-weight: 600;
+  margin: 0;
+  color: #fff;
+}
+
+.work-see-all-section p {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.45);
+  margin: 0;
+  line-height: 1.7;
+}
+
+@media only screen and (max-width: 768px) {
+  .work-see-all-section {
+    padding: 80px 24px;
+  }
+
+  .work-see-all-section h2 {
+    font-size: 40px;
+  }
+
+  .work-see-all-section p {
+    font-size: 15px;
+  }
+}
