@@ -11,14 +11,14 @@ export const config = {
     developer: {
         name: "Pratham",                              // First name only (used in casual greetings)
         fullName: "Pratham Oza",                      // Full name shown in headings / footer
-        title: "Head of GTM | AI & Product", // Job title split by " | " in Landing.tsx
+        title: "Side Quests | & Quests(ions)", // Job title split by " | " in Landing.tsx
         description: "Head of GTM at Fibr AI (Accel Funded, $7.5Mn), building AI Agents for Website Experiences. Computer Science graduate from BITS Pilani. Skadoosh."
     },
 
     // ─── Social / contact quick-access ───────────────────────────────────────
     social: {
         github: "Pozaeiou",
-        email: "pozepratham123@gmail.com",
+        email: "pratham@poza.in",
         location: "Bengaluru, India"
     },
 
@@ -110,7 +110,7 @@ export const config = {
     projects: [
         {
             id: 1,
-            title: "Raptures — Web3 Wallet",
+            title: "Raptures",
             category: "Web3 / Startup",
             technologies: "Discord API, Blockchain, Solana Web3 SDK, TypeScript, Node.js",
             image: "/images/placeholder.webp",
