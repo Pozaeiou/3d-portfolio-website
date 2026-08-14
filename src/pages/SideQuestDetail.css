@@ -1,6 +1,6 @@
 /* WorkDetail.css — Styles for the individual project detail page (/works/:id) */
 
-.workdetail-page {
+.sq-detail-page {
   min-height: 100vh;
   background-color: var(--backgroundColor);
   color: var(--fontColor);
@@ -11,11 +11,11 @@
 }
 
 /* ── Nav ──────────────────────────────────────────────────────────────────── */
-.workdetail-nav {
+.sq-detail-nav {
   margin-bottom: 80px;
 }
 
-.workdetail-back {
+.sq-detail-back {
   font-size: 14px;
   color: rgba(255, 255, 255, 0.5);
   text-decoration: none;
@@ -23,23 +23,23 @@
   transition: color 0.2s;
 }
 
-.workdetail-back:hover {
+.sq-detail-back:hover {
   color: #fff;
 }
 
 /* ── Hero ─────────────────────────────────────────────────────────────────── */
-.workdetail-hero {
+.sq-detail-hero {
   margin-bottom: 60px;
 }
 
-.workdetail-number {
+.sq-detail-number {
   font-size: 13px;
   color: var(--accentColor);
   letter-spacing: 0.15em;
   font-weight: 500;
 }
 
-.workdetail-category {
+.sq-detail-category {
   font-size: 13px;
   color: rgba(255, 255, 255, 0.4);
   margin: 8px 0 20px;
@@ -47,14 +47,14 @@
   text-transform: uppercase;
 }
 
-.workdetail-title {
+.sq-detail-title {
   font-size: 56px;
   font-weight: 600;
   margin: 0 0 24px;
   line-height: 1.1;
 }
 
-.workdetail-highlight {
+.sq-detail-highlight {
   font-size: 20px;
   color: rgba(255, 255, 255, 0.7);
   font-weight: 300;
@@ -64,7 +64,7 @@
 }
 
 /* ── Divider ──────────────────────────────────────────────────────────────── */
-.workdetail-divider {
+.sq-detail-divider {
   width: 100%;
   height: 1px;
   background: #2a2a2a;
@@ -72,7 +72,7 @@
 }
 
 /* ── Image ────────────────────────────────────────────────────────────────── */
-.workdetail-image {
+.sq-detail-image {
   width: 100%;
   margin-bottom: 60px;
   border-radius: 12px;
@@ -80,19 +80,19 @@
   background: #111;
 }
 
-.workdetail-image img {
+.sq-detail-image img {
   width: 100%;
   display: block;
   object-fit: cover;
 }
 
 /* ── Body ─────────────────────────────────────────────────────────────────── */
-.workdetail-body {
+.sq-detail-body {
   margin-bottom: 60px;
 }
 
-.workdetail-body h2,
-.workdetail-tech h2 {
+.sq-detail-body h2,
+.sq-detail-tech h2 {
   font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.15em;
@@ -101,7 +101,7 @@
   margin: 0 0 20px;
 }
 
-.workdetail-body p {
+.sq-detail-body p {
   font-size: 17px;
   font-weight: 300;
   line-height: 1.8;
@@ -110,17 +110,17 @@
 }
 
 /* ── Tech pills ───────────────────────────────────────────────────────────── */
-.workdetail-tech {
+.sq-detail-tech {
   margin-bottom: 60px;
 }
 
-.workdetail-tech-pills {
+.sq-detail-tech-pills {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
 }
 
-.workdetail-pill {
+.sq-detail-pill {
   font-size: 13px;
   padding: 6px 16px;
   border-radius: 20px;
@@ -130,7 +130,7 @@
 }
 
 /* ── Not found ────────────────────────────────────────────────────────────── */
-.workdetail-notfound {
+.sq-detail-notfound {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -142,19 +142,19 @@
 
 /* ── Mobile ───────────────────────────────────────────────────────────────── */
 @media only screen and (max-width: 768px) {
-  .workdetail-page {
+  .sq-detail-page {
     padding: 40px 24px 80px;
   }
 
-  .workdetail-title {
+  .sq-detail-title {
     font-size: 36px;
   }
 
-  .workdetail-highlight {
+  .sq-detail-highlight {
     font-size: 16px;
   }
 
-  .workdetail-body p {
+  .sq-detail-body p {
     font-size: 15px;
   }
 }

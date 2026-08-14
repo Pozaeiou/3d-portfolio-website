@@ -15,7 +15,7 @@ import Landing from "./Landing";
 import Navbar from "./Navbar";
 import SocialIcons from "./SocialIcons";
 import WhatIDo from "./WhatIDo";
-import Work from "./Work";
+import SideQuests from "./SideQuests";
 import TechStackNew from "./TechStackNew";
 import CallToAction from "./CallToAction";
 import setSplitText from "./utils/splitText"; // Registers GSAP scroll text animations
@@ -61,7 +61,7 @@ const MainContainer = ({ children }: PropsWithChildren) => {
         <About />        {/* Short bio paragraph */}
         <WhatIDo />      {/* Two skill cards (GTM & Software) */}
         <Career />       {/* Vertical experience timeline */}
-        <Work />         {/* Horizontal scroll project showcase */}
+        <SideQuests />         {/* Horizontal scroll project showcase */}
         <TechStackNew /> {/* Inverted-pyramid tech stack grid */}
         <CallToAction /> {/* "Play With Me" + "Hire Me" buttons */}
         <Contact />      {/* Email, socials, footer / copyright */}

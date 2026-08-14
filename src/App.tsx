@@ -15,8 +15,8 @@ import "./App.css";
 // Lazy imports → each becomes a separate JS chunk in the build output
 const CharacterModel = lazy(() => import("./components/Character"));
 const MainContainer = lazy(() => import("./components/MainContainer"));
-const MyWorks = lazy(() => import("./pages/MyWorks"));
-const WorkDetail = lazy(() => import("./pages/WorkDetail"));
+const AllSideQuests = lazy(() => import("./pages/AllSideQuests"));
+const SideQuestDetail = lazy(() => import("./pages/SideQuestDetail"));
 
 // LoadingProvider manages the global loading screen state and must wrap
 // the home route so the 3D character can report its load progress.
@@ -49,20 +49,20 @@ const App = () => {
 
         {/* ── All Works page ────────────────────────────────────────────── */}
         <Route
-          path="/myworks"
+          path="/side-quests"
           element={
             <Suspense fallback={<div>Loading...</div>}>
-              <MyWorks />
+              <AllSideQuests />
             </Suspense>
           }
         />
 
         {/* ── Individual project detail page ────────────────────────────── */}
         <Route
-          path="/works/:id"
+          path="/side-quests/:id"
           element={
             <Suspense fallback={<div>Loading...</div>}>
-              <WorkDetail />
+              <SideQuestDetail />
             </Suspense>
           }
         />

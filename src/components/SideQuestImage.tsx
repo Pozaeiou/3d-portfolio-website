@@ -1,4 +1,4 @@
-// WorkImage.tsx — Project thumbnail for Work.tsx cards.
+// SideQuestImage.tsx — Project thumbnail for Work.tsx cards.
 //
 // Displays a static image by default. If a `video` prop is passed, hovering
 // over the card fetches the video file, creates a Blob URL, and plays it
@@ -35,10 +35,10 @@ const WorkImage = (props: Props) => {
   };
 
   return (
-    <div className="work-image">
+    <div className="sq-image">
       {/* Wrapping anchor — only navigates if `link` is provided */}
       <a
-        className="work-image-in"
+        className="sq-image-in"
         href={props.link}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={() => setIsVideo(false)} // Hide video when cursor leaves
@@ -47,7 +47,7 @@ const WorkImage = (props: Props) => {
       >
         {/* Arrow icon overlay — only shown when the card has an external link */}
         {props.link && (
-          <div className="work-link">
+          <div className="sq-link">
             <MdArrowOutward />
           </div>
         )}

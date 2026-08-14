@@ -1,4 +1,4 @@
-// MyWorks.tsx — Full project gallery page (/myworks).
+// AllSideQuests.tsx — Full project gallery page (/myworks).
 //
 // Displays all projects from config.projects as a grid of cards.
 // Unlike the Work section on the homepage (which shows only 5 in a
@@ -14,42 +14,42 @@
 
 import { Link } from "react-router-dom";
 import { config } from "../config";
-import "./MyWorks.css";
+import "./AllSideQuests.css";
 
-const MyWorks = () => {
+const AllSideQuests = () => {
   return (
-    <div className="myworks-page">
+    <div className="sq-page">
       {/* ── Page header ─────────────────────────────────────────────────── */}
-      <div className="myworks-header">
+      <div className="sq-header">
         {/* Back navigation — uses React Router Link (no page reload) */}
         <Link to="/" className="back-button" data-cursor="disable">
           ← Back to Home
         </Link>
         <h1>
-          All <span>Works</span>
+          All <span>Side Quests</span>
         </h1>
-        <p>A collection of all my projects and creations</p>
+        <p>All the things I've built, shipped & explored</p>
       </div>
 
       {/* ── Project grid ────────────────────────────────────────────────── */}
       {/* Renders all projects — not sliced, unlike the homepage Work section */}
-      <div className="myworks-grid">
+      <div className="sq-grid">
         {config.projects.map((project, index) => (
-          <div className="myworks-card" key={project.id} data-cursor="disable">
+          <div className="sq-card" key={project.id} data-cursor="disable">
             {/* Zero-padded card number */}
-            <div className="myworks-card-number">0{index + 1}</div>
+            <div className="sq-card-number">0{index + 1}</div>
 
             {/* Project thumbnail */}
-            <div className="myworks-card-image">
+            <div className="sq-card-image">
               <img src={project.image} alt={project.title} />
             </div>
 
             {/* Project metadata */}
-            <div className="myworks-card-info">
+            <div className="sq-card-info">
               <h3>{project.title}</h3>
-              <p className="myworks-card-category">{project.category}</p>
-              <p className="myworks-card-description">{project.description}</p>
-              <p className="myworks-card-tech">{project.technologies}</p>
+              <p className="sq-card-category">{project.category}</p>
+              <p className="sq-card-description">{project.description}</p>
+              <p className="sq-card-tech">{project.technologies}</p>
             </div>
           </div>
         ))}
@@ -58,4 +58,4 @@ const MyWorks = () => {
   );
 };
 
-export default MyWorks;
+export default AllSideQuests;
