@@ -1,4 +1,4 @@
-import type { SideQuest } from "../sideQuests";
+import type { SideQuest } from "./index";
 
 const nft: SideQuest = {
   id:       2,
