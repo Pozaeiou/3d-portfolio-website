@@ -108,13 +108,25 @@ const SocialIcons = () => {
         </span>
       </div>
 
-      {/* Resume button — uses the same HoverLinks double-text animation as nav links */}
-      <a className="resume-button" href="#">
+      {/* Resume button — shows a confirm popup then triggers PDF download */}
+      <button
+        className="resume-button"
+        data-cursor="disable"
+        onClick={() => {
+          const confirmed = window.confirm("Do you want to download my resume?");
+          if (confirmed) {
+            const link = document.createElement("a");
+            link.href = "/Pratham_Oza_Resume.pdf";
+            link.download = "Pratham_Oza_Resume.pdf";
+            link.click();
+          }
+        }}
+      >
         <HoverLinks text="RESUME" />
         <span>
           <TbNotes />
         </span>
-      </a>
+      </button>
     </div>
   );
 };
