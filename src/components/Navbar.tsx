@@ -110,12 +110,7 @@ const Navbar = () => {
         {/* Section links — data-href used by the click handler above,
             href="#…" used as fallback on mobile where JS is bypassed      */}
         <ul>
-          <li>
-            <a data-href="#about" href="#about">
-              <HoverLinks text="ABOUT" />
-            </a>
-          </li>
-          <li>
+<li>
             <a data-href="#work" href="#work">
               <HoverLinks text="SIDE QUESTS" />
             </a>
