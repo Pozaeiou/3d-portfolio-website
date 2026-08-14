@@ -9,8 +9,8 @@ import { config } from "../config";
 import "./SideQuestDetail.css";
 
 const SideQuestDetail = () => {
-  const { id } = useParams<{ id: string }>();
-  const project = config.projects.find((p) => p.id === Number(id));
+  const { slug } = useParams<{ slug: string }>();
+  const project = config.projects.find((p) => p.slug === slug);
 
   if (!project) {
     return (

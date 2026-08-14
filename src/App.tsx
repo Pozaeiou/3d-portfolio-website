@@ -59,7 +59,7 @@ const App = () => {
 
         {/* ── Individual project detail page ────────────────────────────── */}
         <Route
-          path="/side-quests/:id"
+          path="/side-quests/:slug"
           element={
             <Suspense fallback={<div>Loading...</div>}>
               <SideQuestDetail />

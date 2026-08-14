@@ -111,6 +111,7 @@ export const config = {
         {
             id: 1,
             title: "Raptures",
+            slug: "raptures",
             highlight: "My First Venture, a Discord bot that became a Web3 wallet gateway.",
             category: "Startup",
             technologies: "Won hackathons, grants & went to Germany at no cost.",
@@ -120,6 +121,7 @@ export const config = {
         {
             id: 2,
             title: "GAN Encryption — NFT Security",
+            slug: "research-paper",
             highlight: "My First Research Paper, Publish in IEEE",
             category: "Research",
             technologies: "Generative Adversarial Networks to enhance the security of Non-Fungible Tokens (NFTs).",

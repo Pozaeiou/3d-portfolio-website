@@ -19,7 +19,7 @@ const Work = () => {
           <div className="sq-flex">
             {config.projects.slice(0, 5).map((project, index) => (
               <Link
-                to={`/side-quests/${project.id}`}
+                to={`/side-quests/${project.slug}`}
                 className="sq-box"
                 key={project.id}
                 data-cursor="disable"

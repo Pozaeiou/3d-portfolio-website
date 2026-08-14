@@ -21,7 +21,7 @@ const AllSideQuests = () => {
       <div className="sq-grid">
         {config.projects.map((project, index) => (
           <Link
-            to={`/side-quests/${project.id}`}
+            to={`/side-quests/${project.slug}`}
             className="sq-card"
             key={project.id}
             data-cursor="disable"
