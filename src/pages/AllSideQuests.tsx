@@ -1,10 +1,23 @@
 // AllSideQuests.tsx — Full side quests gallery page (/side-quests).
 
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { config } from "../config";
+import { sideQuests } from "../data/sideQuests/index";
 import "./AllSideQuests.css";
 
 const AllSideQuests = () => {
+
+  useEffect(() => {
+    // The global body has overflow:hidden for Lenis on the home page.
+    // This page doesn't use Lenis, so we restore native scroll here.
+    document.body.style.overflow = "auto";
+    document.documentElement.style.overflow = "auto";
+    return () => {
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+    };
+  }, []);
+
   return (
     <div className="sq-page">
 
@@ -19,7 +32,7 @@ const AllSideQuests = () => {
 
       {/* ── Grid ──────────────────────────────────────────────────────────── */}
       <div className="sq-grid">
-        {config.projects.map((project, index) => (
+        {sideQuests.map((project, index) => (
           <Link
             to={`/side-quests/${project.slug}`}
             className="sq-card"

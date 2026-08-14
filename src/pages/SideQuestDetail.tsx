@@ -1,11 +1,21 @@
 // SideQuestDetail.tsx — Individual side quest detail page (/side-quests/:slug).
 // All content is sourced from src/data/sideQuests.ts
 
+import { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { sideQuests } from "../data/sideQuests/index";
 import "./SideQuestDetail.css";
 
 const SideQuestDetail = () => {
+  useEffect(() => {
+    document.body.style.overflow = "auto";
+    document.documentElement.style.overflow = "auto";
+    return () => {
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+    };
+  }, []);
+
   const { slug } = useParams<{ slug: string }>();
   const project = sideQuests.find((p) => p.slug === slug);
 
