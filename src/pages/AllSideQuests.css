@@ -1,6 +1,7 @@
 .sq-page {
   min-height: 100vh;
   background-color: var(--backgroundColor);
+  color: var(--fontColor);
   padding: 80px 40px;
   box-sizing: border-box;
 }
@@ -58,6 +59,9 @@
   overflow: hidden;
   transition: all 0.3s ease;
   position: relative;
+  text-decoration: none;
+  color: inherit;
+  display: block;
 }
 
 .sq-card:hover {
