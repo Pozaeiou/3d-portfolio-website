@@ -17,6 +17,7 @@ const CharacterModel = lazy(() => import("./components/Character"));
 const MainContainer = lazy(() => import("./components/MainContainer"));
 const AllSideQuests = lazy(() => import("./pages/AllSideQuests"));
 const SideQuestDetail = lazy(() => import("./pages/SideQuestDetail"));
+const RapturesPage = lazy(() => import("./pages/RapturesPage"));
 
 // LoadingProvider manages the global loading screen state and must wrap
 // the home route so the 3D character can report its load progress.
@@ -53,6 +54,16 @@ const App = () => {
           element={
             <Suspense fallback={<div>Loading...</div>}>
               <AllSideQuests />
+            </Suspense>
+          }
+        />
+
+        {/* ── Raptures — custom immersive page (must be before :slug) ──── */}
+        <Route
+          path="/side-quests/raptures"
+          element={
+            <Suspense fallback={<div>Loading...</div>}>
+              <RapturesPage />
             </Suspense>
           }
         />
