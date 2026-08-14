@@ -23,7 +23,7 @@ const SideQuestDetail = () => {
     return (
       <div className="sq-detail-notfound">
         <p>Project not found.</p>
-        <Link to="/side-quests" className="sq-detail-back">← Back to Home</Link>
+        <Link to="/side-quests" className="sq-detail-back">← Back to Side Quests</Link>
       </div>
     );
   }
@@ -36,7 +36,7 @@ const SideQuestDetail = () => {
 
       {/* ── Nav ─────────────────────────────────────────────────────────── */}
       <div className="sq-detail-nav">
-        <Link to="/side-quests" className="sq-detail-back" data-cursor="disable">← Back to Home</Link>
+        <Link to="/side-quests" className="sq-detail-back" data-cursor="disable">← Back to Side Quests</Link>
       </div>
 
       {/* ── Hero ────────────────────────────────────────────────────────── */}
