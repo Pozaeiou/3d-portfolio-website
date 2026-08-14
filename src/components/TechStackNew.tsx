@@ -110,7 +110,7 @@ const TechStackNew = () => {
 
       {/* ── Content (sits above the video via z-index) ───────────────────── */}
       <div className="techstack-content">
-        <h2>Tech Stack</h2>
+        <h2>Side Quests(ions)</h2>
 
         {/* Inverted pyramid grid: each row is a flex container centred by CSS */}
         <div className="techstack-pyramid">
