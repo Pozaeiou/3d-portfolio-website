@@ -89,14 +89,19 @@ const Work = () => {
     <div className="work-section" id="work">
       <div className="work-container section-container">
         <h2>
-          My <span>Achievements</span>
+          My <span>Side Quests</span>
         </h2>
 
         {/* Horizontal flex strip — this element is translated by GSAP */}
         <div className="work-flex">
           {/* Render first 5 projects from config as scrollable cards */}
           {config.projects.slice(0, 5).map((project, index) => (
-            <div className="work-box" key={project.id}>
+            <Link
+              to={`/works/${project.id}`}
+              className="work-box"
+              key={project.id}
+              data-cursor="disable"
+            >
               <div className="work-info">
                 <div className="work-title">
                   {/* Zero-padded index (01, 02, …) */}
@@ -107,20 +112,20 @@ const Work = () => {
                     <p>{project.category}</p>
                   </div>
                 </div>
-                <h4>One-line Highlight</h4>
+                <h4>{project.highlight}</h4>
                 <p>{project.technologies}</p>
               </div>
 
               {/* Hover-to-play video thumbnail (video prop is optional) */}
               <WorkImage image={project.image} alt={project.title} />
-            </div>
+            </Link>
           ))}
 
           {/* Extra card at the end of the strip — CTA to the full works page */}
           <div className="work-box work-box-cta">
             <div className="see-all-works">
               <h3>Want to see more?</h3>
-              <p>Explore all of my achievements... Close to my heart</p>
+              <p>Explore all of my side quests... Close to my heart</p>
               <Link to="/myworks" className="see-all-btn" data-cursor="disable">
                 See All →
               </Link>

@@ -2,11 +2,9 @@
 // with Vercel Analytics/SpeedInsights (passive, no UI impact).
 //
 // Routes:
-//   /         → Main portfolio page with 3D character + all sections
-//   /myworks  → Full project gallery page
-//
-// Page components are lazy-loaded (code-split) so the initial JS
-// bundle stays small — each chunk is only downloaded when that route is visited.
+//   /          → Main portfolio page with 3D character + all sections
+//   /myworks   → Full project gallery page
+//   /works/:id → Individual project detail page
 
 import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -18,6 +16,7 @@ import "./App.css";
 const CharacterModel = lazy(() => import("./components/Character"));
 const MainContainer = lazy(() => import("./components/MainContainer"));
 const MyWorks = lazy(() => import("./pages/MyWorks"));
+const WorkDetail = lazy(() => import("./pages/WorkDetail"));
 
 // LoadingProvider manages the global loading screen state and must wrap
 // the home route so the 3D character can report its load progress.
@@ -37,8 +36,6 @@ const App = () => {
           path="/"
           element={
             <LoadingProvider>
-              {/* fallback={null} → loading screen is handled by LoadingProvider,
-                  not by a Suspense fallback, so we don't show a double loader  */}
               <Suspense fallback={null}>
                 <MainContainer>
                   <Suspense fallback={null}>
@@ -56,6 +53,16 @@ const App = () => {
           element={
             <Suspense fallback={<div>Loading...</div>}>
               <MyWorks />
+            </Suspense>
+          }
+        />
+
+        {/* ── Individual project detail page ────────────────────────────── */}
+        <Route
+          path="/works/:id"
+          element={
+            <Suspense fallback={<div>Loading...</div>}>
+              <WorkDetail />
             </Suspense>
           }
         />

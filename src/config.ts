@@ -111,6 +111,7 @@ export const config = {
         {
             id: 1,
             title: "Raptures",
+            highlight: "Won 5 hackathons & raised pre-seed — a Discord bot that became a Web3 wallet gateway.",
             category: "Web3 / Startup",
             technologies: "Discord API, Blockchain, Solana Web3 SDK, TypeScript, Node.js",
             image: "/images/placeholder.webp",
@@ -119,6 +120,7 @@ export const config = {
         {
             id: 2,
             title: "GAN Encryption — NFT Security",
+            highlight: "Published in IEEE Access (IF: 3.9) — reduced NFT image similarity to <1% using GANs.",
             category: "Deep Learning / Research",
             technologies: "Python, PyTorch, GANs, Cryptography, IEEE Access",
             image: "/images/placeholder.webp",

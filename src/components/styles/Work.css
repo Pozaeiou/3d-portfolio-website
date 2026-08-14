@@ -350,3 +350,14 @@
     font-size: 14px;
   }
 }
+/* Clickable card link — reset anchor styles, add hover lift */
+a.work-box {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+a.work-box:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
