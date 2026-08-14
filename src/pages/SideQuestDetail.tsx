@@ -128,3 +128,4 @@ const SideQuestDetail = () => {
 };
 
 export default SideQuestDetail;
+
