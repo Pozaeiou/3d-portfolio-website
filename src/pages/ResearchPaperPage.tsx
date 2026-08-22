@@ -15,6 +15,7 @@ import {
   TbChartBar,
   TbLock,
   TbAlertTriangle,
+  TbDownload,
 } from "react-icons/tb";
 import "./ResearchPaperPage.css";
 
@@ -171,6 +172,11 @@ const ResearchPaperPage = () => {
           able to perfectly restore it in under half a second? That's the core question this paper tries to answer,
           in the context of NFT security on the blockchain.
         </p>
+      </div>
+
+      {/* ── Paper headline image ─────────────────────────────────────────── */}
+      <div className="rp-headline-block rp-reveal">
+        <img src="/images/rp-headline.png" alt="IEEE Access — Research Article headline" className="rp-headline-img" />
       </div>
 
       <div className="rp-divider" />
@@ -537,6 +543,14 @@ const ResearchPaperPage = () => {
           </div>
         </div>
 
+        {/* Full flow diagram from paper */}
+        <div className="rp-chart rp-reveal" style={{ background: "#fff", padding: 0 }}>
+          <img src="/images/rp-flowdiagram.png" alt="Figure 2 — High level user architecture" style={{ filter: "none", borderRadius: 12 }} />
+          <p className="rp-chart-caption" style={{ color: "rgba(0,0,0,0.45)", background: "#fff" }}>
+            Fig. 2 — High level user architecture: full encrypt → transfer → decrypt flow
+          </p>
+        </div>
+
         {/* Phase 3 — Decryption */}
         <p className="rp-chapter-label" style={{ margin: "40px 0 16px" }}>Phase 3 — Decryption</p>
 
@@ -867,7 +881,7 @@ const ResearchPaperPage = () => {
 
       <div className="rp-divider" />
 
-      {/* ── Read Paper link ──────────────────────────────────────────────── */}
+      {/* ── Read Paper + Download links ──────────────────────────────────── */}
       <section className="rp-chapter rp-reveal">
         <div className="rp-links">
           <a
@@ -880,6 +894,22 @@ const ResearchPaperPage = () => {
             Read on IEEE Xplore
             <TbExternalLink size={15} />
           </a>
+          <button
+            className="rp-link-btn rp-link-btn-dl"
+            data-cursor="disable"
+            onClick={() => {
+              const confirmed = window.confirm("Download the research paper PDF?");
+              if (confirmed) {
+                const link = document.createElement("a");
+                link.href = "/research-paper.pdf";
+                link.download = "GAN_Encryption_NFT_Security_IEEE_2025.pdf";
+                link.click();
+              }
+            }}
+          >
+            Download PDF
+            <TbDownload size={15} />
+          </button>
         </div>
       </section>
 

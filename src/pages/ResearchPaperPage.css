@@ -556,10 +556,37 @@
   letter-spacing: 0.05em;
   transition: all 0.25s;
   font-family: "Fira Code", monospace;
+  background: transparent;
+  cursor: pointer;
 }
 .rp-link-btn:hover {
   background: var(--rp-accent);
   color: #000;
+}
+/* Download variant — filled so text is always visible */
+.rp-link-btn-dl {
+  background: var(--rp-accent);
+  color: #000;
+}
+.rp-link-btn-dl:hover {
+  background: transparent;
+  color: var(--rp-accent);
+}
+
+/* ── Paper headline image ────────────────────────────────────────────────── */
+.rp-headline-block {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 40px 60px;
+  position: relative;
+  z-index: 2;
+}
+.rp-headline-img {
+  width: 100%;
+  display: block;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.4);
 }
 
 /* ── Bottom back ─────────────────────────────────────────────────────────── */
