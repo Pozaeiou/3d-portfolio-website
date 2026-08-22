@@ -465,6 +465,89 @@
 .rp-image-sm { height: 200px; }
 .rp-image-lg { height: 340px; }
 
+/* ── Video Player ────────────────────────────────────────────────────────── */
+.rp-video-block {
+  margin: 36px 0;
+  position: relative;
+}
+.rp-video-label {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--rp-accent);
+  margin-bottom: 12px;
+  font-family: "Fira Code", monospace;
+}
+.rp-video-wrap {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--rp-border);
+  background: #000;
+  /* centre the portrait video, cap height so it doesn't dominate */
+  display: flex;
+  justify-content: center;
+  max-height: 520px;
+}
+.rp-video {
+  display: block;
+  max-width: 100%;
+  max-height: 520px;
+  width: auto;
+  object-fit: contain;
+}
+.rp-video-controls {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(8, 8, 8, 0.75);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 40px;
+  padding: 8px 14px;
+}
+.rp-video-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: "Fira Code", monospace;
+  font-size: 11px;
+  padding: 4px 6px;
+  border-radius: 20px;
+  transition: color 0.2s, background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.04em;
+}
+.rp-video-playpause {
+  width: 30px;
+  height: 30px;
+  background: var(--rp-accent-dim);
+  border-radius: 50% !important;
+  color: var(--rp-accent);
+}
+.rp-video-playpause:hover { background: rgba(194, 164, 255, 0.22); }
+.rp-video-speeds { display: flex; gap: 4px; align-items: center; }
+.rp-speed-btn:hover { color: #fff; }
+.rp-speed-btn.active { color: var(--rp-accent); background: var(--rp-accent-dim); }
+.rp-video-divider {
+  width: 1px;
+  height: 16px;
+  background: rgba(255, 255, 255, 0.12);
+  margin: 0 2px;
+}
+
+@media (max-width: 768px) {
+  .rp-video-wrap { max-height: 420px; }
+  .rp-video { max-height: 420px; }
+}
+
 /* ── Quotes ──────────────────────────────────────────────────────────────── */
 .rp-quote {
   border-left: 2px solid var(--rp-accent);

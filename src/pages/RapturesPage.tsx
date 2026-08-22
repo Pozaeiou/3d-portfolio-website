@@ -1,7 +1,7 @@
 // RapturesPage.tsx — Custom immersive story page for the Raptures side quest.
 // Content sourced from Medium article: https://pozee.medium.com/the-journey-of-raptures-c03caf709d16
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { Link } from "react-router-dom";
 import {
   TbArrowLeft,
@@ -14,6 +14,8 @@ import {
   TbBuilding,
   TbExternalLink,
   TbX,
+  TbPlayerPlay,
+  TbPlayerPause,
 } from "react-icons/tb";
 import "./RapturesPage.css";
 
@@ -28,7 +30,10 @@ const chapters = [
 
 const RapturesPage = () => {
   const cursorGlowRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const [progress, setProgress] = useState(0);
+  const [videoPlaying, setVideoPlaying] = useState(true);
+  const [videoSpeed, setVideoSpeed] = useState(1);
 
   // Body overflow fix for Lenis on home page
   useEffect(() => {
@@ -71,6 +76,18 @@ const RapturesPage = () => {
     );
     document.querySelectorAll(".rp-reveal").forEach((el) => observer.observe(el));
     return () => observer.disconnect();
+  }, []);
+
+  const togglePlay = useCallback(() => {
+    const v = videoRef.current;
+    if (!v) return;
+    if (v.paused) { v.play(); setVideoPlaying(true); }
+    else          { v.pause(); setVideoPlaying(false); }
+  }, []);
+
+  const setSpeed = useCallback((speed: number) => {
+    if (videoRef.current) videoRef.current.playbackRate = speed;
+    setVideoSpeed(speed);
   }, []);
 
   const scrollTo = (id: string) => {
@@ -384,9 +401,9 @@ const RapturesPage = () => {
           <p>Madhav got into a research internship at the <strong>University of Melbourne</strong> to study blockchain and zero-knowledge proofs. I visited the startup camp in <strong>Germany</strong> hosted by the Technical University of Braunschweig, funded by a DAAD grant of ~€1000.</p>
         </div>
 
-        {/* IMAGE 6: Germany DAAD Startup Camp photo */}
-        <div className="rp-image-placeholder rp-image-lg">
-          <span>Germany, DAAD Startup Camp, Summer 2023</span>
+        <div className="rp-chapter-img">
+          <img src="/images/raptures-germany.jpg" alt="DAAD Startup Camp, Germany, Summer 2023" />
+          <div className="rp-hero-image-caption">DAAD Startup Camp, Braunschweig, Germany, Summer 2023</div>
         </div>
 
         <div className="rp-chapter-body">
@@ -411,6 +428,39 @@ const RapturesPage = () => {
         <div className="rp-chapter-img">
           <img src="/images/raptures-discord-bot.webp" alt="Discord Bot Interface" />
           <p className="rp-img-caption">Discord Bot Interface</p>
+        </div>
+
+        {/* Product demo video */}
+        <div className="rp-video-block">
+          <div className="rp-video-label">Live Demo</div>
+          <div className="rp-video-wrap">
+            <video
+              ref={videoRef}
+              src="/images/raptures-demo.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="rp-video"
+            />
+            <div className="rp-video-controls">
+              <button className="rp-video-btn rp-video-playpause" onClick={togglePlay} data-cursor="disable">
+                {videoPlaying ? <TbPlayerPause size={16} /> : <TbPlayerPlay size={16} />}
+              </button>
+              <div className="rp-video-speeds">
+                {([1, 1.5, 2] as const).map((s) => (
+                  <button
+                    key={s}
+                    className={`rp-video-btn rp-speed-btn${videoSpeed === s ? " active" : ""}`}
+                    onClick={() => setSpeed(s)}
+                    data-cursor="disable"
+                  >
+                    {s}x
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="rp-chapter-body">
