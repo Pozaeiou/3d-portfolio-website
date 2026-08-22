@@ -267,3 +267,9 @@
   background: var(--accentColor);
   color: #000;
 }
+
+.sq-detail-bottom-back {
+  margin-top: 80px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}

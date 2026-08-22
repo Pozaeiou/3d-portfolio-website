@@ -123,6 +123,11 @@ const SideQuestDetail = () => {
         </div>
       )}
 
+      {/* ── Bottom back link ─────────────────────────────────────────────── */}
+      <div className="sq-detail-bottom-back">
+        <Link to="/side-quests" className="sq-detail-back" data-cursor="disable">← Back to Side Quests</Link>
+      </div>
+
     </div>
   );
 };

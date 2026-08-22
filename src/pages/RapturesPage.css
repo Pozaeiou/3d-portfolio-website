@@ -907,6 +907,17 @@
   box-shadow: 0 8px 36px rgba(194, 164, 255, 0.28);
 }
 
+/* ── Bottom Back Link ────────────────────────────────────────────────────── */
+.rp-bottom-back {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 40px 80px;
+  position: relative;
+  z-index: 2;
+  border-top: 1px solid var(--rp-border);
+  padding-top: 40px;
+}
+
 /* ── Mobile ──────────────────────────────────────────────────────────────── */
 @media (max-width: 768px) {
   /* Hide cursor glow and orbs on touch devices */

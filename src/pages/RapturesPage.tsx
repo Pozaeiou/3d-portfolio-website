@@ -564,6 +564,14 @@ const RapturesPage = () => {
         </a>
       </section>
 
+      {/* ── Bottom back link ─────────────────────────────────────────────── */}
+      <div className="rp-bottom-back rp-reveal">
+        <Link to="/side-quests" className="rp-back" data-cursor="disable">
+          <TbArrowLeft size={14} />
+          Back to Side Quests
+        </Link>
+      </div>
+
     </div>
   );
 };
