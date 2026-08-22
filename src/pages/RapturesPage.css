@@ -394,18 +394,24 @@
   letter-spacing: 0.02em;
 }
 
-/* ── Hero Logo Overlay ───────────────────────────────────────────────────── */
-.rp-hero-logo {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  width: 56px;
-  height: 56px;
-  object-fit: contain;
-  border-radius: 10px;
-  background: rgba(8, 8, 8, 0.65);
-  padding: 6px;
-  backdrop-filter: blur(8px);
+/* ── Standalone Logo ─────────────────────────────────────────────────────── */
+.rp-logo-block {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 56px 40px 0;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+.rp-standalone-logo {
+  /* Render at half the 1500px native width = 750px max, but fluid */
+  max-width: min(500px, 80%);
+  width: 100%;
+  height: auto;
+  /* Invert for light logos on dark bg — remove this line if the logo is already light */
+  filter: brightness(1.1) drop-shadow(0 0 24px rgba(194, 164, 255, 0.18));
+  display: block;
 }
 
 /* ── Chapter Images (real photos) ────────────────────────────────────────── */

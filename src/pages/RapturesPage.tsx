@@ -149,10 +149,9 @@ const RapturesPage = () => {
           Let's begin with the start of my love for startups.
         </p>
 
-        {/* Hero image: team photo + logo overlay */}
+        {/* Hero image: team photo */}
         <div className="rp-hero-image rp-reveal">
           <img src="/images/raptures.jpg" alt="Raptures team at Solana HackerHouse" />
-          <img src="/images/raptures-logo.webp" alt="Raptures logo" className="rp-hero-logo" />
           <div className="rp-hero-image-caption">Team Photo, Solana HackerHouse</div>
         </div>
 
@@ -171,6 +170,11 @@ const RapturesPage = () => {
             <span className="rp-stat-label">Awards & Grants</span>
           </div>
         </div>
+      </div>
+
+      {/* ── Standalone Logo ─────────────────────────────────────────────── */}
+      <div className="rp-logo-block rp-reveal">
+        <img src="/images/raptures-logo.webp" alt="Raptures" className="rp-standalone-logo" />
       </div>
 
       {/* ── Intro ───────────────────────────────────────────────────────── */}
