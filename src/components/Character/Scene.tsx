@@ -24,9 +24,7 @@ import { useLoading } from "../../context/LoadingProvider";
 import handleResize from "./utils/resizeUtils";
 import {
   handleMouseMove,
-  handleTouchEnd,
   handleHeadRotation,
-  handleTouchMove,
 } from "./utils/mouseUtils";
 import setAnimations from "./utils/animationUtils";
 import { setProgress } from "../Loading";
@@ -142,40 +140,9 @@ const Scene = () => {
         handleMouseMove(event, (x, y) => (mouse = { x, y }));
       };
 
-      let debounce: number | undefined;
-
-      // On touchstart, wait 200 ms before listening to touchmove events
-      // to distinguish taps from intentional drags
-      const onTouchStart = (event: TouchEvent) => {
-        const element = event.target as HTMLElement;
-        debounce = setTimeout(() => {
-          element?.addEventListener("touchmove", (e: TouchEvent) =>
-            handleTouchMove(e, (x, y) => (mouse = { x, y }))
-          );
-        }, 200);
-      };
-
-      // When finger lifts, slowly return the head to centre position
-      const onTouchEnd = () => {
-        handleTouchEnd((x, y, interpolationX, interpolationY) => {
-          mouse = { x, y };
-          interpolation = { x: interpolationX, y: interpolationY };
-        });
-      };
-
       document.addEventListener("mousemove", (event) => {
         onMouseMove(event);
       });
-
-      // Touch listeners are attached only to the landing section so they
-      // don't interfere with normal page scrolling
-      const landingDiv = document.getElementById("landingDiv");
-      if (landingDiv) {
-        // passive: true — lets the browser start scrolling immediately without
-        // waiting for the listener to return (critical for smooth mobile scroll)
-        landingDiv.addEventListener("touchstart", onTouchStart, { passive: true });
-        landingDiv.addEventListener("touchend", onTouchEnd, { passive: true });
-      }
 
       // ── Main render loop ───────────────────────────────────────────────
       const animate = () => {
@@ -208,22 +175,14 @@ const Scene = () => {
 
       // ── Cleanup on unmount ─────────────────────────────────────────────
       return () => {
-        clearTimeout(debounce);
-        scene.clear();        // Remove all objects from the scene
-        renderer.dispose();   // Free WebGL memory
+        scene.clear();
+        renderer.dispose();
+        document.removeEventListener("mousemove", onMouseMove);
         window.removeEventListener("resize", () =>
           handleResize(renderer, camera, canvasDiv, character!)
         );
         if (canvasDiv.current) {
           canvasDiv.current.removeChild(renderer.domElement);
-        }
-        if (landingDiv) {
-          document.removeEventListener("mousemove", onMouseMove);
-          landingDiv.removeEventListener("touchstart", onTouchStart);
-          landingDiv.removeEventListener("touchend", onTouchEnd);
-          // Note: the dynamically added touchmove listeners on individual elements
-          // are not tracked individually; they are cleaned up when the DOM element
-          // is removed or when the component unmounts.
         }
       };
     }
