@@ -394,6 +394,51 @@
   letter-spacing: 0.02em;
 }
 
+/* ── Hero Logo Overlay ───────────────────────────────────────────────────── */
+.rp-hero-logo {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  border-radius: 10px;
+  background: rgba(8, 8, 8, 0.65);
+  padding: 6px;
+  backdrop-filter: blur(8px);
+}
+
+/* ── Chapter Images (real photos) ────────────────────────────────────────── */
+.rp-chapter-img {
+  margin: 36px 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--rp-border);
+  position: relative;
+}
+.rp-chapter-img img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  max-height: 380px;
+  transition: transform 0.5s ease;
+}
+.rp-chapter-img:hover img { transform: scale(1.02); }
+.rp-img-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 14px 18px;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+  background: linear-gradient(0deg, rgba(8, 8, 8, 0.80) 0%, transparent 100%);
+  margin: 0;
+  font-family: "Fira Code", monospace;
+}
+
 /* ── Image Placeholders ──────────────────────────────────────────────────── */
 .rp-image-placeholder {
   background: linear-gradient(135deg, #0c0c0c, var(--rp-card));

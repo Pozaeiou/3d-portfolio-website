@@ -132,9 +132,10 @@ const RapturesPage = () => {
           Let's begin with the start of my love for startups.
         </p>
 
-        {/* IMAGE 1: Team photo — already exists at /images/raptures.jpg */}
+        {/* Hero image: team photo + logo overlay */}
         <div className="rp-hero-image rp-reveal">
           <img src="/images/raptures.jpg" alt="Raptures team at Solana HackerHouse" />
+          <img src="/images/raptures-logo.webp" alt="Raptures logo" className="rp-hero-logo" />
           <div className="rp-hero-image-caption">Team Photo, Solana HackerHouse</div>
         </div>
 
@@ -180,9 +181,9 @@ const RapturesPage = () => {
           <p>My first task was to learn about <strong>Khatabook</strong>, a simple digital ledger for businesses. This is when I first understood the journey of a startup in India. I made it to the final round and was asked to create a pitch deck.</p>
         </div>
 
-        {/* IMAGE 2: The CEL pitch deck */}
-        <div className="rp-image-placeholder rp-image-sm">
-          <span>The Pitch Deck</span>
+        <div className="rp-chapter-img">
+          <img src="/images/raptures-pitchdeck.webp" alt="The Pitch Deck" />
+          <p className="rp-img-caption">The Pitch Deck</p>
         </div>
 
         <blockquote className="rp-quote">
@@ -207,9 +208,9 @@ const RapturesPage = () => {
           <p>It was called <strong>Talkin</strong>, providing wide-range 1:1 counselling at low cost to users. We got office space from PIEDS (the college incubator), spoke to counselors in Jaipur, competed for grants, networked with investors.</p>
         </div>
 
-        {/* IMAGE 3: Talkin app screenshot */}
-        <div className="rp-image-placeholder rp-image-sm">
-          <span>Talkin App</span>
+        <div className="rp-chapter-img">
+          <img src="/images/raptures-talkin.webp" alt="Talkin App" />
+          <p className="rp-img-caption">Talkin App</p>
         </div>
 
         <p className="rp-chapter-body-solo">But we failed.</p>
@@ -254,9 +255,9 @@ const RapturesPage = () => {
           <p>And unfortunately, we concluded it wouldn't work. But it wasn't the end of Raptures.</p>
         </div>
 
-        {/* IMAGE 4: NFT Social Platform mockup */}
-        <div className="rp-image-placeholder rp-image-sm">
-          <span>NFT Social Platform Mockup</span>
+        <div className="rp-chapter-img">
+          <img src="/images/raptures-nft-mockup.webp" alt="NFT Social Platform Mockup" />
+          <p className="rp-img-caption">NFT Social Platform Mockup</p>
         </div>
 
         <div className="rp-lessons">
@@ -288,9 +289,9 @@ const RapturesPage = () => {
           <p>This actually solved real-world problems: black market selling, unidentified entry issues with ticketing. We even found competitors in other countries working on the same idea.</p>
         </div>
 
-        {/* IMAGE 5: NFT Ticketing Platform model */}
-        <div className="rp-image-placeholder rp-image-sm">
-          <span>NFT Ticketing Platform Model</span>
+        <div className="rp-chapter-img">
+          <img src="/images/raptures-ticketing.webp" alt="NFT Ticketing Platform Model" />
+          <p className="rp-img-caption">NFT Ticketing Platform Model</p>
         </div>
 
         <p className="rp-chapter-body-solo">We pitched it to event managers and ticketing platforms. And again, we failed.</p>
@@ -318,6 +319,11 @@ const RapturesPage = () => {
         <div className="rp-chapter-body">
           <p>July 2022. My tech co-founder called me while I was chilling at a park in Ahmedabad and introduced me to <strong>DAOs</strong>, Decentralized Autonomous Organizations. Think: the Slack/Notion of Web3.</p>
           <p>We came up with a no-code platform for creating DAOs. And then, our first major breakthrough.</p>
+        </div>
+
+        <div className="rp-chapter-img">
+          <img src="/images/raptures-dao.webp" alt="DAO Platform Model" />
+          <p className="rp-img-caption">DAO Platform Model</p>
         </div>
 
         <div className="rp-win-card">
@@ -402,9 +408,9 @@ const RapturesPage = () => {
           <p>We attended the <strong>Solana HackerHouse Bengaluru</strong> in September 2023. We pitched. We got a good response. But 2023 was a bear run for crypto, and sector-agnostic VCs had pivoted entirely to AI.</p>
         </div>
 
-        {/* IMAGE 7: Discord Bot interface */}
-        <div className="rp-image-placeholder rp-image-sm">
-          <span>Discord Bot Interface</span>
+        <div className="rp-chapter-img">
+          <img src="/images/raptures-discord-bot.webp" alt="Discord Bot Interface" />
+          <p className="rp-img-caption">Discord Bot Interface</p>
         </div>
 
         <div className="rp-chapter-body">
