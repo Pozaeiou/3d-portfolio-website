@@ -22,7 +22,7 @@ const nft: SideQuest = {
   ],
 
   team:  ["Pratham Oza"],
-  links: [{ label: "Read Paper", url: "https://ieeexplore.ieee.org" }],
+  links: [{ label: "Read Paper", url: "https://ieeexplore.ieee.org/document/11142250" }],
 };
 
 export default nft;

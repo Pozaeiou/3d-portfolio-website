@@ -1,0 +1,804 @@
+/* ResearchPaperPage.css — Immersive paper deep-dive for /side-quests/research-paper
+   Shares the exact same visual language as RapturesPage.css (rp- prefix reused).
+   Extra research-specific components (equations, algo blocks, tables) added below. */
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --rp-accent:     #c2a4ff;
+  --rp-accent-dim: rgba(194, 164, 255, 0.12);
+  --rp-bg:         #080808;
+  --rp-card:       #0f0f0f;
+  --rp-border:     #1c1c1c;
+  --rp-text:       rgba(255, 255, 255, 0.72);
+  --rp-muted:      rgba(255, 255, 255, 0.32);
+}
+
+/* ── Base ─────────────────────────────────────────────────────────────────── */
+.rp-page {
+  min-height: 100vh;
+  background: var(--rp-bg);
+  color: #fff;
+  font-family: "Fira Code", monospace;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ── Cursor Spotlight ────────────────────────────────────────────────────── */
+.rp-cursor-glow {
+  pointer-events: none;
+  position: fixed;
+  width: 720px;
+  height: 720px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(194, 164, 255, 0.065) 0%, transparent 62%);
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  will-change: left, top;
+  transition: opacity 0.4s;
+}
+
+/* ── Floating Ambient Orbs ───────────────────────────────────────────────── */
+.rp-orbs {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+.rp-orb {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(194, 164, 255, 0.10), transparent 70%);
+  filter: blur(48px);
+  animation: rpOrbFloat 20s ease-in-out infinite;
+}
+.rp-orb-1 { width: 320px; height: 320px; top: 8%;  left: 3%;  animation-duration: 18s; animation-delay: 0s; }
+.rp-orb-2 { width: 220px; height: 220px; top: 55%; right: 6%; animation-duration: 23s; animation-delay: -7s; }
+.rp-orb-3 { width: 180px; height: 180px; top: 28%; right: 18%;animation-duration: 15s; animation-delay: -13s; }
+.rp-orb-4 { width: 260px; height: 260px; bottom: 18%;left: 12%;animation-duration: 26s; animation-delay: -4s; }
+
+@keyframes rpOrbFloat {
+  0%,  100% { transform: translateY(0px)  translateX(0px);  opacity: 0.45; }
+  33%        { transform: translateY(-28px) translateX(16px); opacity: 0.72; }
+  66%        { transform: translateY(18px)  translateX(-12px);opacity: 0.30; }
+}
+
+/* ── Reading Progress Bar ────────────────────────────────────────────────── */
+.rp-progress-bar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--rp-accent), rgba(194, 164, 255, 0.35));
+  z-index: 999;
+  transition: width 0.12s linear;
+  border-radius: 0 2px 2px 0;
+}
+
+/* ── Scroll Reveal ───────────────────────────────────────────────────────── */
+.rp-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.rp-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Nav ─────────────────────────────────────────────────────────────────── */
+.rp-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 60px;
+  background: rgba(8, 8, 8, 0.90);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--rp-border);
+}
+
+.rp-back {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  color: var(--rp-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-family: "Fira Code", monospace;
+}
+.rp-back:hover { color: #fff; }
+.rp-back svg { flex-shrink: 0; }
+
+.rp-chapter-nav { display: flex; gap: 6px; }
+.rp-chapter-dot {
+  background: transparent;
+  border: 1px solid var(--rp-border);
+  border-radius: 5px;
+  width: 38px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 10px;
+  font-family: "Fira Code", monospace;
+  color: var(--rp-muted);
+  letter-spacing: 0.06em;
+  transition: all 0.2s;
+}
+.rp-chapter-dot:hover {
+  border-color: var(--rp-accent);
+  color: var(--rp-accent);
+  background: var(--rp-accent-dim);
+}
+
+/* ── Hero ────────────────────────────────────────────────────────────────── */
+.rp-hero {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 96px 40px 72px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.rp-hero-tags {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.rp-tag {
+  font-size: 10px;
+  padding: 5px 14px;
+  border-radius: 4px;
+  border: 1px solid var(--rp-border);
+  color: var(--rp-muted);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-family: "Fira Code", monospace;
+}
+.rp-tag-ieee {
+  border-color: rgba(100, 200, 255, 0.25);
+  color: rgba(130, 210, 255, 0.7);
+}
+
+.rp-hero-title {
+  font-size: clamp(38px, 6.5vw, 76px);
+  font-weight: 700;
+  line-height: 1.06;
+  margin: 0 0 30px;
+  letter-spacing: -2.5px;
+}
+.rp-hero-title span {
+  color: var(--rp-accent);
+  position: relative;
+  display: inline-block;
+}
+.rp-hero-title span::after {
+  content: '';
+  position: absolute;
+  bottom: 6px; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--rp-accent), transparent 80%);
+  border-radius: 2px;
+  animation: rpUnderlineGrow 1.2s 0.6s ease forwards;
+  transform-origin: left;
+  transform: scaleX(0);
+}
+@keyframes rpUnderlineGrow { to { transform: scaleX(1); } }
+
+.rp-hero-sub {
+  font-size: 17px;
+  color: var(--rp-muted);
+  font-weight: 300;
+  margin: 0 0 56px;
+  font-style: italic;
+  letter-spacing: 0.02em;
+}
+
+/* Hero image */
+.rp-hero-image {
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--rp-border);
+  position: relative;
+  margin-bottom: 0;
+}
+.rp-hero-image img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  max-height: 420px;
+  transition: transform 0.6s ease;
+}
+.rp-hero-image:hover img { transform: scale(1.02); }
+.rp-hero-image-caption {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 20px;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+  background: linear-gradient(0deg, rgba(8, 8, 8, 0.85) 0%, transparent 100%);
+  text-align: left;
+}
+
+/* Stats */
+.rp-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--rp-border);
+  border: 1px solid var(--rp-border);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-top: 44px;
+}
+.rp-stat {
+  background: var(--rp-card);
+  padding: 28px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.3s;
+}
+.rp-stat:hover { background: #141414; }
+.rp-stat-num {
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--rp-accent);
+  letter-spacing: -1.5px;
+  line-height: 1;
+}
+.rp-stat-label {
+  font-size: 10px;
+  color: var(--rp-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* ── Intro ───────────────────────────────────────────────────────────────── */
+.rp-intro {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 80px 40px;
+  position: relative;
+  z-index: 2;
+}
+.rp-intro p {
+  font-size: 20px;
+  line-height: 1.95;
+  color: var(--rp-text);
+  font-weight: 300;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+.rp-intro-answer {
+  font-size: 60px !important;
+  font-weight: 700 !important;
+  color: #fff !important;
+  margin-top: 32px !important;
+  line-height: 1 !important;
+  letter-spacing: -3px !important;
+}
+
+/* ── Divider ─────────────────────────────────────────────────────────────── */
+.rp-divider {
+  max-width: 900px;
+  margin: 8px auto;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--rp-border) 25%, var(--rp-border) 75%, transparent);
+  position: relative;
+  z-index: 2;
+}
+
+/* ── Chapters ────────────────────────────────────────────────────────────── */
+.rp-chapter {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 96px 40px;
+  scroll-margin-top: 68px;
+  position: relative;
+  z-index: 2;
+}
+
+.rp-chapter-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  margin-bottom: 52px;
+  position: relative;
+}
+
+.rp-chapter-ghost-num {
+  position: absolute;
+  right: -10px; top: -30px;
+  font-size: 120px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.025);
+  line-height: 1;
+  letter-spacing: -6px;
+  user-select: none;
+  pointer-events: none;
+  font-family: "Fira Code", monospace;
+}
+
+.rp-chapter-label {
+  font-size: 10px;
+  color: var(--rp-accent);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin: 0 0 8px;
+}
+.rp-chapter-title {
+  font-size: 36px;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: -1.5px;
+  line-height: 1.1;
+}
+
+.rp-chapter-body {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  margin-bottom: 40px;
+}
+.rp-chapter-body p {
+  font-size: 17px;
+  line-height: 1.95;
+  color: var(--rp-text);
+  margin: 0;
+  font-weight: 300;
+}
+.rp-chapter-body strong { color: #fff; font-weight: 600; }
+
+.rp-chapter-body-solo {
+  font-size: 17px;
+  line-height: 1.95;
+  color: var(--rp-text);
+  margin: 0 0 32px;
+  font-weight: 300;
+}
+
+.rp-chapter-end {
+  font-size: 13px;
+  color: var(--rp-muted);
+  font-style: italic;
+  margin-top: 32px;
+  padding: 14px 20px;
+  border-left: 2px solid var(--rp-border);
+  letter-spacing: 0.02em;
+}
+
+/* ── Quotes ──────────────────────────────────────────────────────────────── */
+.rp-quote {
+  border-left: 2px solid var(--rp-accent);
+  padding: 16px 24px;
+  margin: 32px 0;
+  font-size: 17px;
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.8;
+}
+.rp-quote-big {
+  font-size: 22px;
+  padding: 24px 32px;
+}
+
+/* ── Chapter Images ──────────────────────────────────────────────────────── */
+.rp-chapter-img {
+  margin: 36px 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--rp-border);
+  position: relative;
+}
+.rp-chapter-img img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  max-height: 380px;
+  transition: transform 0.5s ease;
+}
+.rp-chapter-img:hover img { transform: scale(1.02); }
+.rp-img-caption {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 14px 18px;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+  background: linear-gradient(0deg, rgba(8, 8, 8, 0.80) 0%, transparent 100%);
+  margin: 0;
+  font-family: "Fira Code", monospace;
+}
+
+/* ── Lesson boxes ────────────────────────────────────────────────────────── */
+.rp-lessons {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 32px 0;
+}
+.rp-lesson {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  background: var(--rp-card);
+  border: 1px solid var(--rp-border);
+  border-radius: 10px;
+  padding: 18px 20px;
+}
+.rp-lesson-icon {
+  color: var(--rp-accent);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.rp-lesson p {
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--rp-text);
+  margin: 0;
+  font-weight: 300;
+}
+
+/* ── Awards grid ─────────────────────────────────────────────────────────── */
+.rp-awards h2 {
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -1px;
+  margin: 0 0 36px;
+}
+.rp-awards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+.rp-award-card {
+  background: var(--rp-card);
+  border: 1px solid var(--rp-border);
+  border-radius: 12px;
+  padding: 24px 20px;
+  transition: border-color 0.25s, background 0.25s;
+}
+.rp-award-card:hover {
+  border-color: rgba(194, 164, 255, 0.3);
+  background: #121212;
+}
+.rp-award-icon {
+  color: var(--rp-accent);
+  display: block;
+  margin-bottom: 14px;
+}
+.rp-award-card h4 {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0 0 8px;
+  letter-spacing: -0.3px;
+}
+.rp-award-card p {
+  font-size: 13px;
+  color: var(--rp-muted);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ── Team ────────────────────────────────────────────────────────────────── */
+.rp-team h2 {
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -1px;
+  margin: 0 0 36px;
+}
+.rp-team-cards {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.rp-team-card {
+  background: var(--rp-card);
+  border: 1px solid var(--rp-border);
+  border-radius: 12px;
+  padding: 28px 24px;
+  flex: 1;
+  min-width: 180px;
+  transition: border-color 0.25s;
+}
+.rp-team-card:hover { border-color: rgba(194, 164, 255, 0.25); }
+.rp-team-avatar {
+  width: 48px; height: 48px;
+  background: var(--rp-accent-dim);
+  border: 1px solid rgba(194, 164, 255, 0.25);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--rp-accent);
+  margin-bottom: 14px;
+  letter-spacing: 0.05em;
+}
+.rp-team-card h4 { font-size: 15px; font-weight: 600; margin: 0 0 5px; }
+.rp-team-card p  { font-size: 12px; color: var(--rp-muted); margin: 0; }
+
+/* ── Link section ────────────────────────────────────────────────────────── */
+.rp-links { display: flex; gap: 16px; flex-wrap: wrap; }
+.rp-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 32px;
+  border-radius: 30px;
+  border: 1px solid var(--rp-accent);
+  color: var(--rp-accent);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  transition: all 0.25s;
+  font-family: "Fira Code", monospace;
+}
+.rp-link-btn:hover {
+  background: var(--rp-accent);
+  color: #000;
+}
+
+/* ── Bottom back ─────────────────────────────────────────────────────────── */
+.rp-bottom-back {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 40px 120px;
+  position: relative;
+  z-index: 2;
+  border-top: 1px solid var(--rp-border);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   RESEARCH-SPECIFIC COMPONENTS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Equation block ──────────────────────────────────────────────────────── */
+.rp-equation {
+  background: rgba(194, 164, 255, 0.04);
+  border: 1px solid rgba(194, 164, 255, 0.15);
+  border-radius: 10px;
+  padding: 22px 28px;
+  margin: 24px 0;
+  text-align: center;
+}
+.rp-equation-label {
+  font-size: 10px;
+  color: var(--rp-accent);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin: 0 0 10px;
+  font-family: "Fira Code", monospace;
+}
+.rp-equation-formula {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.88);
+  font-weight: 400;
+  line-height: 2;
+  font-family: "Fira Code", monospace;
+}
+.rp-equation-sub {
+  font-size: 13px;
+  color: var(--rp-muted);
+  margin-top: 10px;
+  line-height: 1.8;
+  font-family: "Fira Code", monospace;
+}
+
+/* ── Algorithm block ─────────────────────────────────────────────────────── */
+.rp-algo {
+  background: #0a0a0a;
+  border: 1px solid var(--rp-border);
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 28px 0;
+}
+.rp-algo-header {
+  background: rgba(194, 164, 255, 0.06);
+  border-bottom: 1px solid var(--rp-border);
+  padding: 12px 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.rp-algo-name {
+  font-size: 11px;
+  color: var(--rp-accent);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-family: "Fira Code", monospace;
+  font-weight: 500;
+}
+.rp-algo-tag {
+  font-size: 10px;
+  color: var(--rp-muted);
+  letter-spacing: 0.12em;
+  font-family: "Fira Code", monospace;
+}
+.rp-algo-body {
+  padding: 20px 24px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.62);
+  line-height: 1.95;
+  font-family: "Fira Code", monospace;
+  overflow-x: auto;
+}
+.rp-algo-kw   { color: var(--rp-accent); }
+.rp-algo-fn   { color: rgba(130, 200, 255, 0.85); }
+.rp-algo-num  { color: rgba(255, 190, 120, 0.85); }
+.rp-algo-comment { color: rgba(255, 255, 255, 0.25); }
+
+/* ── Comparison table ────────────────────────────────────────────────────── */
+.rp-table-wrap {
+  overflow-x: auto;
+  margin: 28px 0;
+  border-radius: 12px;
+  border: 1px solid var(--rp-border);
+}
+.rp-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Fira Code", monospace;
+  font-size: 13px;
+}
+.rp-table th {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rp-muted);
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--rp-border);
+  text-align: left;
+  font-weight: 500;
+  background: rgba(194, 164, 255, 0.04);
+  white-space: nowrap;
+}
+.rp-table td {
+  padding: 12px 18px;
+  color: rgba(255, 255, 255, 0.62);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  white-space: nowrap;
+}
+.rp-table tr:last-child td { border-bottom: none; }
+.rp-table tr.rp-table-highlight td {
+  color: #fff;
+  background: rgba(194, 164, 255, 0.06);
+}
+.rp-table td.rp-accent-cell { color: var(--rp-accent); font-weight: 600; }
+.rp-table td.rp-green-cell  { color: rgba(130, 255, 160, 0.8); }
+.rp-table td.rp-red-cell    { color: rgba(255, 120, 120, 0.7); }
+
+/* ── Metric cards grid ───────────────────────────────────────────────────── */
+.rp-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin: 32px 0;
+}
+.rp-metric {
+  background: var(--rp-card);
+  border: 1px solid var(--rp-border);
+  border-radius: 12px;
+  padding: 28px 20px;
+  text-align: center;
+  transition: border-color 0.25s;
+}
+.rp-metric:hover { border-color: rgba(194, 164, 255, 0.25); }
+.rp-metric-val {
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--rp-accent);
+  letter-spacing: -2px;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+.rp-metric-label {
+  font-size: 10px;
+  color: var(--rp-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  line-height: 1.5;
+}
+
+/* ── Chart image (white bg → invert for dark) ────────────────────────────── */
+.rp-chart {
+  margin: 36px 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--rp-border);
+  background: #111;
+  padding: 8px;
+}
+.rp-chart img {
+  width: 100%;
+  display: block;
+  border-radius: 8px;
+  filter: invert(1) brightness(0.85) contrast(1.05);
+}
+.rp-chart-caption {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rp-muted);
+  margin-top: 12px;
+  padding: 0 8px 8px;
+  font-family: "Fira Code", monospace;
+  text-align: center;
+}
+
+/* ── Pipeline flow ───────────────────────────────────────────────────────── */
+.rp-pipeline {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 32px 0;
+}
+.rp-pipeline-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 18px 20px;
+  background: var(--rp-card);
+  border: 1px solid var(--rp-border);
+  border-radius: 10px;
+  transition: border-color 0.2s;
+}
+.rp-pipeline-step:hover { border-color: rgba(194, 164, 255, 0.2); }
+.rp-pipeline-num {
+  font-size: 11px;
+  color: var(--rp-accent);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  min-width: 28px;
+  padding-top: 2px;
+}
+.rp-pipeline-content h4 {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0 0 5px;
+  color: #fff;
+}
+.rp-pipeline-content p {
+  font-size: 13px;
+  color: var(--rp-muted);
+  margin: 0;
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────── */
+@media only screen and (max-width: 768px) {
+  .rp-nav { padding: 14px 20px; }
+  .rp-hero { padding: 60px 24px 48px; }
+  .rp-hero-title { letter-spacing: -1.5px; }
+  .rp-chapter { padding: 64px 24px; }
+  .rp-stats { grid-template-columns: repeat(2, 1fr); }
+  .rp-intro { padding: 60px 24px; }
+  .rp-bottom-back { padding: 40px 24px 80px; }
+  .rp-metrics { grid-template-columns: 1fr; }
+  .rp-chapter-nav { display: none; }
+  .rp-algo-body { font-size: 11px; }
+}
