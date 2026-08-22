@@ -38,11 +38,11 @@ export const config = {
             company: "Fibr AI, Accel Funded $7.5 Million",
             period: "Sep 2024 - Present",   // "Present" triggers "NOW" label in the timeline
             location: "Bengaluru, India",
-            description: "Building AI-powered web experiences for every visitor at Fibr AI. Driving B2B tech sales across GTM channels using automation and AI — from outbound discovery through to deal close and client solutioning.",
+            description: "Building AI-powered web experiences for every visitor at Fibr AI. Driving B2B tech sales across GTM channels using automation and AI, from outbound discovery through to deal close and client solutioning.",
             responsibilities: [
                 "Led end-to-end customer discovery across 100+ mid-market & enterprise accounts, achieving 10%+ reply rates & 3%+ meeting bookings",
                 "Engineered a 66% reduction in sales-ops and resource costs by deploying in-house automations using Lemlist, Webhooks & Apollo APIs",
-                "Owned 75+ end-to-end deals — taking discovery calls, platform demos, pricing negotiations, & pilot scoping, with full tracking on Pipedrive CRM",
+                "Owned 75+ end-to-end deals: discovery calls, platform demos, pricing negotiations, & pilot scoping, with full tracking on Pipedrive CRM",
                 "Researched 25+ CRO techniques and partnered with Product teams to enhance agentic personalisation, GEO optimisation, and A/B testing",
                 "Part of the Solutioning team, achieving 20%+ conversion uplifts using AI-driven hypotheses, driving client renewals and $200K in proposals"
             ],
@@ -53,7 +53,7 @@ export const config = {
             company: "Searce Inc",
             period: "Jul 2024 - Sep 2024",
             location: "India",
-            description: "Cloud Consultant on the Google Workspace Team, India Division at Searce Inc — a Global Google Premier Partner. Completed the Google Cloud Digital Leader Certification.",
+            description: "Cloud Consultant on the Google Workspace Team, India Division at Searce Inc, a Global Google Premier Partner. Completed the Google Cloud Digital Leader Certification.",
             responsibilities: [
                 "Part of the Google Workspace Team, India Division at Searce Inc, a consulting firm operating as a Global Google Premier Partner",
                 "Completed the Google Cloud Digital Leader Certification, improving Searce's standing and certification portfolio as a Global Google Premier Partner"
@@ -65,12 +65,12 @@ export const config = {
             company: "Viacom18 (JioHotStar), PPO Rejected",
             period: "Feb 2024 - Jun 2024",
             location: "Mumbai, India",
-            description: "Performance & Growth Marketing at Digital Ventures, JioCinema. Led the JioCinema Premium launch (Rs.29/month) — managing paid campaigns across Google & Meta, SEO for SVOD titles, analytics via AppsFlyer & MixPanel. PPO offered.",
+            description: "Performance & Growth Marketing at Digital Ventures, JioCinema. Led the JioCinema Premium launch (Rs.29/month), managing paid campaigns across Google & Meta, SEO for SVOD titles, analytics via AppsFlyer & MixPanel. PPO offered.",
             responsibilities: [
                 "Built 10+ conversion funnels and studied user behavior in Mixpanel & AppsFlyer to support the Analytics team with data-driven insights",
                 "Analyzed Subscriptions of JioCinema for Web+App via Google & Meta Ads Manager, resulting in a 15% reduction in Cost-Per-Subscription",
                 "Managed On-Page & Off-Page SEO of 10+ SVOD Entertainment Titles using SEMrush, Google Search Console & Google Keyword Planner",
-                "Compiled reports on MS Excel for Digital Impact of 6 New Launches with KPIs — Clicks, Reach, Revenue, Impressions & Views using DV 360",
+                "Compiled reports on MS Excel for Digital Impact of 6 New Launches with KPIs: Clicks, Reach, Revenue, Impressions & Views using DV 360",
                 "Collaborated with Havas Media (external agency) on daily reports directly viewed by SVOD upper management, reducing reporting time by 40%"
             ],
             technologies: ["Performance Marketing", "SEO", "Google Ads", "Meta Ads", "Mixpanel", "AppsFlyer", "DV 360"]
@@ -100,7 +100,7 @@ export const config = {
                 "Selected via the BITS Pilani Practice School-1 (PS-1) Internship Program and finished as Top Performing Intern with Grade A",
                 "Completed 10+ assignments on Automation Anywhere covering Excel, Email, PDF, File & Folder, OCR, and Web Scraping packages",
                 "Designed a Grade Confirmation Bot enabling one-click sending of custom grade reports as PDFs over mail to 100% of the complete mailing list",
-                "Created an E-commerce OCR Bot to fetch details on Amazon retail — achieving a 20-fold efficiency improvement over manual processes"
+                "Created an E-commerce OCR Bot to fetch details on Amazon retail, achieving a 20-fold efficiency improvement over manual processes"
             ],
             technologies: ["RPA", "Automation Anywhere", "OCR", "Web Scraping", "Automation"]
         }
@@ -126,7 +126,7 @@ export const config = {
         develop: {
             title: "SELL",
             description: "Driving B2B Tech Sales & GTM with automation & AI agents",
-            details: "Building GTM engines at Fibr AI using AI-driven outbound, sales automation, and CRO strategies. From 100+ enterprise discoveries to $500K in proposals — blending tech and sales to close deals and deliver results.",
+            details: "Building GTM engines at Fibr AI using AI-driven outbound, sales automation, and CRO strategies. From 100+ enterprise discoveries to $500K in proposals, blending tech and sales to close deals and deliver results.",
             tools: ["Discovery", "Pitch", "Leadership", "AI Agents", "N8N", "GTM Strategy", "CRO", "B2B SaaS", "Outbound Sales", "Pipedrive CRM", "Apollo", "Lemlist", "Webhooks"]
         },
         design: {
